@@ -1,5 +1,6 @@
 package com.infosys.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,14 @@ public class CustomerService {
 	
 	public void delete(int id) {
 		crepo.deleteById(id);
+	}
+	
+	public void update(Customer cust,int id) {
+		 crepo.updateCust(cust.getCust_name(), cust.getAge(), cust.getGender(), cust.getAddress(), id);
+	}
+	
+	public List<Customer> fetchCustomer(Integer id,String name){
+        return crepo.getDetails(id, name);
+		 
 	}
 }
